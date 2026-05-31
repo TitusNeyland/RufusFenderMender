@@ -1,0 +1,68 @@
+<section id="book">
+  <div class="container">
+    <div class="booking-grid">
+      <div>
+        <div class="section-eyebrow">Easy Scheduling</div>
+        <h2 class="section-title booking-title">BOOK YOUR<br>APPOINTMENT</h2>
+        <p class="booking-desc">
+          Request a weekday drop-off between 9am and 5pm, or call <a href="tel:5013763966">(501) 376-3966</a> (shop) or <a href="tel:5016808926">(501) 680-8926</a> (cell) to schedule directly.
+        </p>
+        <div class="booking-steps">
+          @for (step of steps; track step.num) {
+            <div class="step">
+              <div class="step-num">{{ step.num }}</div>
+              <div class="step-content">
+                <h4>{{ step.title }}</h4>
+                <p>{{ step.desc }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="booking-card">
+        <h3 class="booking-card-title">SCHEDULE A DROP-OFF</h3>
+        <p class="booking-card-sub">Tell us when works best.</p>
+        <form (submit)="handleBooking($event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label>Name</label>
+              <input type="text" required placeholder="Your name">
+            </div>
+            <div class="form-field">
+              <label>Phone</label>
+              <input type="tel" required placeholder="(501) 376-3966">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Preferred Date</label>
+              <input type="date" required>
+            </div>
+            <div class="form-field">
+              <label>Time</label>
+              <select required>
+                <option value="">Select time</option>
+                <option>9:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>1:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row" style="margin-bottom: 24px;">
+            <div class="form-field full">
+              <label>Vehicle &amp; Service</label>
+              <input type="text" required placeholder="2019 Camry, bumper repair">
+            </div>
+          </div>
+          <button type="submit" class="form-submit">Request Appointment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

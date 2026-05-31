@@ -1,0 +1,135 @@
+<section class="estimate" id="estimate">
+  <div class="container">
+    <div class="estimate-grid">
+      <div class="estimate-copy">
+        <div class="section-eyebrow">No Obligation</div>
+        <h2>GET A FREE ESTIMATE</h2>
+        <p>
+          Tell us about your vehicle and the damage, or call <a href="tel:5013763966">(501) 376-3966</a> (shop) or <a href="tel:5016808926">(501) 680-8926</a> (cell) during business hours. We'll follow up with a fair, transparent quote. Upload photos to speed things up.
+        </p>
+        <ul class="trust-list">
+          <li><span class="trust-dot"></span>Free, no-pressure quotes</li>
+          <li><span class="trust-dot"></span>Open Mon–Fri, 9am to 5pm</li>
+          <li><span class="trust-dot"></span>4501 Asher Ave, Little Rock</li>
+          <li><span class="trust-dot"></span>5.0 Google rating</li>
+        </ul>
+      </div>
+
+      <form class="form" (submit)="handleEstimate($event)">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Full Name</label>
+            <input type="text" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-field">
+            <label>Phone</label>
+            <input type="tel" name="phone" required placeholder="(501) 376-3966">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="you&#64;email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Vehicle (Year / Make / Model)</label>
+            <input type="text" name="vehicle" required placeholder="2019 Toyota Camry">
+          </div>
+          <div class="form-field">
+            <label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option>Collision Repair</option>
+              <option>Dent Removal</option>
+              <option>Paint Work</option>
+              <option>Frame Straightening</option>
+              <option>Scratch Repair</option>
+              <option>Insurance Claim</option>
+              <option>Not Sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label>Describe the Damage</label>
+            <textarea name="damage" required placeholder="What happened, where is the damage, any other details..."></textarea>
+          </div>
+        </div>
+
+        <label
+          class="upload"
+          [class.upload--dragging]="isDragging()"
+          for="photos"
+          (dragover)="onDragOver($event)"
+          (dragleave)="onDragLeave($event)"
+          (drop)="onDrop($event)"
+        >
+          <i class="fa-solid fa-cloud-arrow-up upload-icon" aria-hidden="true"></i>
+          @if (photos().length === 0) {
+            <span>Drop photos here or click to upload</span>
+          } @else {
+            <span>{{ photos().length }} photo{{ photos().length === 1 ? '' : 's' }} added — click to add more</span>
+          }
+          <input
+            type="file"
+            id="photos"
+            multiple
+            accept="image/*"
+            style="display:none"
+            (change)="onFileSelected($event)"
+          >
+        </label>
+
+        @if (photos().length > 0) {
+          <div class="photo-previews">
+            @for (photo of photos(); track photo.url; let i = $index) {
+              <div class="photo-preview">
+                <img [src]="photo.url" [alt]="photo.name">
+                <button type="button" class="photo-remove" (click)="removePhoto(i)" aria-label="Remove photo">
+                  <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+              </div>
+            }
+          </div>
+        }
+
+        <button type="submit" class="form-submit">Send Estimate Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+@if (showModal()) {
+  <div class="modal-backdrop" (click)="closeModal()">
+    <div class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" (click)="$event.stopPropagation()">
+      <button type="button" class="modal-close" (click)="closeModal()" aria-label="Close">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <div class="modal-icon">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+      </div>
+      <h3 id="modal-title" class="modal-title">REQUEST RECEIVED</h3>
+      <p class="modal-body">
+        Thanks for reaching out! We'll review your estimate request and get back to you as soon as possible.
+      </p>
+      <p class="modal-note">
+        If you don't hear back within <strong>3–5 business days</strong>, please call the shop directly:
+      </p>
+      <div class="modal-phones">
+        <a href="tel:5013763966" class="modal-phone">
+          <i class="fa-solid fa-phone" aria-hidden="true"></i>
+          (501) 376-3966
+          <span>Shop</span>
+        </a>
+        <a href="tel:5016808926" class="modal-phone">
+          <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+          (501) 680-8926
+          <span>Cell</span>
+        </a>
+      </div>
+      <button type="button" class="btn-primary modal-btn" (click)="closeModal()">Got It</button>
+    </div>
+  </div>
+}

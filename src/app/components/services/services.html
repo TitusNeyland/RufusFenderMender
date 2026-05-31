@@ -1,0 +1,28 @@
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">SERVICES</h2>
+      </div>
+      <p class="section-desc">
+        Every job, big or small, gets the same level of care. Here's what we handle in house.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services; track service.num) {
+        <div class="svc">
+          <div class="svc-header">
+            <div class="svc-num">{{ service.num }}</div>
+            <div class="svc-icon">
+              <i [class]="service.icon" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="svc-name">{{ service.name }}</div>
+          <p class="svc-desc">{{ service.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

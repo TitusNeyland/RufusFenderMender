@@ -1,0 +1,37 @@
+<section id="why">
+  <div class="container">
+    <div class="why-banner">
+      <img
+        src="images/mechanic-engine.png"
+        alt="Mechanic working under the hood at Rufus Fender Mender"
+        class="why-banner-img"
+      />
+      <div class="why-banner-overlay">
+        <p class="why-banner-quote">"Hands-on expertise. No shortcuts."</p>
+        <span class="why-banner-sub">Every repair handled by skilled technicians in our Little Rock shop.</span>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">The Difference</div>
+        <h2 class="section-title">WHY RUFUS?</h2>
+      </div>
+      <p class="section-desc">
+        Honest pricing, expert work, and a real human on the phone. That's the standard.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      @for (card of cards; track card.title) {
+        <div class="why-card">
+          <div class="why-title">{{ card.title }}</div>
+          <div class="why-icon">
+            <i [class]="card.icon" aria-hidden="true"></i>
+          </div>
+          <p class="why-desc">{{ card.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

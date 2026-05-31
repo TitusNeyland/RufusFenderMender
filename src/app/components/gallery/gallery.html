@@ -1,0 +1,37 @@
+<section class="gallery" id="work">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-eyebrow">Our Work</div>
+        <h2 class="section-title">SEE THE DIFFERENCE</h2>
+      </div>
+      <p class="section-desc">
+        From crumpled panels to a factory-fresh finish — every repair gets the same attention to detail.
+      </p>
+    </div>
+
+    <div class="gallery-showcase">
+      <div class="gallery-img-wrap">
+        <img
+          src="images/before-after.png"
+          alt="Before and after collision repair on a BMW sedan"
+          class="gallery-img"
+        />
+        <span class="gallery-badge gallery-badge--before">Before</span>
+        <span class="gallery-badge gallery-badge--after">After</span>
+      </div>
+      <div class="gallery-copy">
+        <h3>COLLISION REPAIR DONE RIGHT</h3>
+        <p>
+          Major front-end damage restored to showroom condition — panel alignment, paint matching, and structural integrity handled in house at our Little Rock shop.
+        </p>
+        <ul class="gallery-tags">
+          @for (tag of tags; track tag) {
+            <li>{{ tag }}</li>
+          }
+        </ul>
+        <a href="#estimate"><button class="btn-primary">Get Your Free Estimate</button></a>
+      </div>
+    </div>
+  </div>
+</section>

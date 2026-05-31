@@ -1,0 +1,45 @@
+<header class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">Little Rock, AR &middot; 4501 Asher Ave</div>
+        <h1>
+          WE FIX IT<br>
+          <span class="accent">RIGHT</span> THE<br>
+          FIRST TIME.
+        </h1>
+        <p class="hero-sub">
+          Reputable auto body shop in Little Rock specializing in collision repair, dent removal, paint matching, and more. Trusted by Central Arkansas drivers to get vehicles back on the road safely.
+        </p>
+        <div class="hero-btns">
+          <a href="#estimate"><button class="btn-primary">Get a Free Estimate</button></a>
+          <a href="#services"><button class="btn-ghost">View Services</button></a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img
+            src="images/shop-detail.png"
+            alt="Technicians polishing a vehicle at Rufus Fender Mender"
+            class="hero-img"
+          />
+          <div class="hero-img-accent">
+            <img
+              src="images/mechanic-engine.png"
+              alt="Mechanic performing under-hood repair work"
+            />
+          </div>
+        </div>
+        <div class="hero-stats">
+          @for (stat of stats; track stat.label) {
+            <div class="stat">
+              <div class="stat-num">{{ stat.value }}</div>
+              <div class="stat-label">{{ stat.label }}</div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
